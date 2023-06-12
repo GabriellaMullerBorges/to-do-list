@@ -1,0 +1,70 @@
+:root{
+    /*Light Theme*/
+--very-Light-Gray: hsl(0, 0%, 98%);
+--very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+--light-Grayish-Blue: hsl(233, 11%, 84%);
+--dark-Grayish-Blue: hsl(236, 9%, 61%);
+--very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+
+/*Dark Theme*/
+
+--very-Dark-Blue: hsl(235, 21%, 11%);
+--very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+--light-Grayish-Blue: hsl(234, 39%, 85%);
+--light-Grayish-Blue: hsl(236, 33%, 92%);
+--dark-Grayish-Blue: hsl(234, 11%, 52%);
+--very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+--very-Dark-Gray-Blue: hsl(237, 14%, 26%);
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+ background-color: var(--very-Dark-Blue);
+}
+
+.top-img {
+    width:100%;
+    height: 225px;
+    background-size: cover;
+    background-image: url(/images/bg-mobile-dark.jpg);
+}
+
+main{
+    position: absolute;
+    top:0;
+    height: 100vh;
+    width:100%;
+    padding: 25px;
+}
+
+.chamada {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    letter-spacing: 10px;
+}
+
+.toggle-btn{
+    background: url(/images/icon-sun.svg);
+    background-size: cover;
+    height: 30px;
+    width:30px;
+}
+
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+   
+}
+.attribution a {
+     color: hsl(228, 45%, 44%); 
+    }
