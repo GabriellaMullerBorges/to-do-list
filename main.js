@@ -1,38 +1,65 @@
-const toDoInput = document.querySelector('todo-input');
-const toDoList = []
+const todoInput = document.querySelector('.todo-input');
+const todosContainer = document.querySelector(".todos")
 
-toDoInput.addEventListener("keyup", function(event){
-    if(event.key === "Enter"){
-        toDoList.push(event.target.value);
-        console.log(toDoList);
-        newToDo(event.target.value)
-        toDoInput = "";
+
+var todos = []
+
+todoInput.addEventListener("keyup", function (e){
+    if(e.key === "Enter" || e.keyCode === 13){
+       todos.push({value: e.target.value, checked:false});
+        console.log(todos);
+        newTodo(e.target.value)
+        todoInput.value = "";
     }
-})
+});
 
-function newToDo(valor){
-    const toDoDiv =  document.createElement("div");
-    const toDoText = document.createElement("p");
-    const toDoCheckbox = document.createElement("input");
-    const toDoCheckboxLabel = document.createElement("label");
-    const toDoX = document.createElement("span");
+function newTodo(value){
+    const todo =  document.createElement("div");
+    const todoText = document.createElement("p");
+    const todoCheckbox = document.createElement("input");
+    const todoCheckboxLabel = document.createElement("label");
+    const todoCross = document.createElement("span");
 
+    let obj = todos.find((t) =>  t.value === value) ;
 
-    toDoText.textContent = value;
-    toDoCheckbox.type = "checkbox";
-    toDoCheckbox.name = "checkbox";
-    toDoCheckboxLabel.htmlFor = "checkbox"
+    todoText.textContent = value;
+    todoCheckbox.type = "checkbox";
+    todoCheckbox.name = "checkbox";
+    todoCheckboxLabel.htmlFor = "checkbox";
 
-    toDoCheckboxLabel.addEventListener('click', function(e){
-        if(toDoCheckbox.checked){
-            toDoCheckbox.checked = false;
-            toDoText.style.textDecoration = 'none';
-            toDoCheckboxLabel.classList.remove('active');
+    todoCheckboxLabel.addEventListener('click', function(_e){    
+        if(todoCheckbox.checked){
+            todoCheckbox.checked = false;
+            todoText.style.textDecoration = 'none';
+            todoCheckboxLabel.classList.remove('active');
+            obj.checked = false;
+            console.log(todos)
         }else {
-            toDoCheckbox.checked= true;
-            toDoText.style.textDecoration = "line-through";
-            toDoCheckboxLabel.classList.add('active')
+            obj.checked = true; 
+            console.log(todos)
+            todoCheckbox.checked= true;
+            todoText.style.textDecoration = "line-through";
+            todoCheckboxLabel.classList.add('active')
         }
     })
+ 
+    todoCross.textContent = "X";
+    todoCross.addEventListener("click", function (e){
+        e.target.parentElement.remove();
+        todos = todos.filter((t) => t !== obj);
+        console.log(todos)
+    });
+
+    todo.classList.add("todo");
+    todoCheckboxLabel.classList.add("circle");
+    todoCross.classList.add("cross");
+
+    todo.appendChild(todoCheckbox);
+    todo.appendChild(todoCheckboxLabel)
+    todo.appendChild(todoText)
+    todo.appendChild(todoCross)
+
+    todosContainer.appendChild(todo);
+
 }
 

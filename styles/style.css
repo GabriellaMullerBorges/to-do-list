@@ -18,11 +18,11 @@
 }
 
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
@@ -44,12 +44,13 @@ main{
     padding: 25px;
 }
 
-.chamada {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: white;
     letter-spacing: 10px;
+    font-weight: 700;
 }
 
 .toggle-btn{
@@ -59,7 +60,7 @@ main{
     width:30px;
 }
 
-.todo-inserir{
+.type-todo{
     margin-top: 24px;
     width: 100%;
     background-color: var(--very-Dark-Gray-Blue);
@@ -70,7 +71,11 @@ main{
     align-items: center;
 }
 
-.circulo{
+.type-todo, .todos {
+ font-weight: 400;
+}
+
+.circle{
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -89,6 +94,38 @@ color:var(--dark-Grayish-Blue)
     outline: none;
   }
 
+.todos{
+    margin-top: 24px; 
+    background-color: var(--very-Dark-Gray-Blue);
+    color: white;
+}
+
+.todo {
+   
+    width:100%;
+    height: 55px;
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.todo input[type="checkbox"]{
+    display:none;
+}
+
+.active {
+    position: relative;
+    background: linear-gradient( hsl(192, 100%, 67%), hsl(280,87%,65%) )
+}
+
+.active::before {
+    content: ✔;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+}
 
 .attribution { 
     font-size: 11px; 
