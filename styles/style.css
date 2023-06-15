@@ -127,6 +127,14 @@ color:var(--dark-Grayish-Blue)
     height: 10px;
 }
 
+.cross {
+    opacity: 0;
+}
+
+.todo:hover .cross{
+    opacity: 1;
+}
+
 .remarks{
     display: flex;
     justify-content: space-between;
@@ -134,16 +142,14 @@ color:var(--dark-Grayish-Blue)
     position:relative;
     background-color: var(--very-Dark-Gray-Blue);
     height: 55px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 .remarks div{
     padding: 0 10px;
     color: white;
 }
 
-.completedCountDisplay{
-    width: 100%;
-    text-align: center;
-}
 
 .filters{
     width:100%;
@@ -160,6 +166,10 @@ color:var(--dark-Grayish-Blue)
     cursor: pointer ;
 }
 
+.filterActive {
+    color: hsl(220, 98%,61%) !important; /*voltar aqui para alterar a cor da letra corretamente*/
+}
+
 .attribution { 
     font-size: 11px; 
     text-align: center; 
@@ -168,3 +178,19 @@ color:var(--dark-Grayish-Blue)
 .attribution a {
      color: hsl(228, 45%, 44%); 
     }
+
+@media screen and (min-width: 800px) {
+    .header, .type-todo, .todos, .remarks {
+        width:60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .filters {
+        top:0;
+        bottom: 0;
+        left:50%;
+        transform: translateX(-50%);
+        width:50%;
+        background-color: transparent;
+    }
+}

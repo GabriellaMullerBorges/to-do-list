@@ -74,15 +74,28 @@ function countCompleted(){
 }
 
 function showAll() {
-    document.querySelectorAll(".todo").forEach((todo) => {
-        
-        todo.style.display = "grid";
-       
+    document.querySelectorAll(".filter div").forEach((d,i)=>{
+        if ( i=== 0) {
+            d.classList.add("filterActive")
+        } else {
+            d.classList.remove("filterActive")
+        }
+    } )
+    document.querySelectorAll(".todo").forEach((todo) => {  
+        todo.style.display = "grid"; 
      })
 }
 
 function filterActive() {
+    document.querySelectorAll(".filter div").forEach((d,i)=>{
+        if ( i=== 0) {
+            d.classList.add("filterActive")
+        } else {
+            d.classList.remove("filterActive")
+        }
+    } )
  document.querySelectorAll(".todo").forEach((todo) => {
+    todo.style.display = "grid";
     if(todo.querySelector("input").checked){
         todo.style.display = "none"
     }
@@ -90,7 +103,15 @@ function filterActive() {
 }
 
 function filterCompleted() {
+    document.querySelectorAll(".filter div").forEach((d,i)=>{
+        if ( i=== 0) {
+            d.classList.add("filterActive")
+        } else {
+            d.classList.remove("filterActive")
+        }
+    } )
     document.querySelectorAll(".todo").forEach((todo) => {
+        todo.style.display = "grid";
         if(!todo.querySelector("input").checked){
             todo.style.display = "none"
         }
@@ -99,6 +120,7 @@ function filterCompleted() {
 
 function clearCompleted(){
     document.querySelectorAll(".todo").forEach((todo) => {
+        todo.style.display = "grid";
         if(todo.querySelector("input").checked){
             todo.remove();
         }
