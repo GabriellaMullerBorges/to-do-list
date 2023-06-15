@@ -127,6 +127,39 @@ color:var(--dark-Grayish-Blue)
     height: 10px;
 }
 
+.remarks{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+    background-color: var(--very-Dark-Gray-Blue);
+    height: 55px;
+}
+.remarks div{
+    padding: 0 10px;
+    color: white;
+}
+
+.completedCountDisplay{
+    width: 100%;
+    text-align: center;
+}
+
+.filters{
+    width:100%;
+    background-color: var(--very-Dark-Gray-Blue) ;
+    height: 55px;
+    position: absolute;
+    bottom: -70px;
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.all, .activated, .completed, .completedCountDisplay{
+    cursor: pointer ;
+}
+
 .attribution { 
     font-size: 11px; 
     text-align: center; 

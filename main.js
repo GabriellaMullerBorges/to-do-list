@@ -1,6 +1,6 @@
 const todoInput = document.querySelector('.todo-input');
 const todosContainer = document.querySelector(".todos")
-
+const countCompletedDiv = document.querySelector(".completedCount")
 
 var todos = []
 
@@ -10,8 +10,10 @@ todoInput.addEventListener("keyup", function (e){
         console.log(todos);
         newTodo(e.target.value)
         todoInput.value = "";
+        countCompleted();
     }
 });
+
 
 function newTodo(value){
     const todo =  document.createElement("div");
@@ -34,9 +36,11 @@ function newTodo(value){
             todoCheckboxLabel.classList.remove('active');
             obj.checked = false;
             console.log(todos)
+            countCompleted();
         }else {
             obj.checked = true; 
             console.log(todos)
+            countCompleted();
             todoCheckbox.checked= true;
             todoText.style.textDecoration = "line-through";
             todoCheckboxLabel.classList.add('active')
@@ -47,6 +51,7 @@ function newTodo(value){
     todoCross.addEventListener("click", function (e){
         e.target.parentElement.remove();
         todos = todos.filter((t) => t !== obj);
+        countCompleted();
         console.log(todos)
     });
 
@@ -63,3 +68,39 @@ function newTodo(value){
 
 }
 
+
+function countCompleted(){
+    countCompletedDiv.textContent = `${todos.filter((t) => t.checked === false).length} itens left`
+}
+
+function showAll() {
+    document.querySelectorAll(".todo").forEach((todo) => {
+        
+        todo.style.display = "grid";
+       
+     })
+}
+
+function filterActive() {
+ document.querySelectorAll(".todo").forEach((todo) => {
+    if(todo.querySelector("input").checked){
+        todo.style.display = "none"
+    }
+ })
+}
+
+function filterCompleted() {
+    document.querySelectorAll(".todo").forEach((todo) => {
+        if(!todo.querySelector("input").checked){
+            todo.style.display = "none"
+        }
+     })
+}
+
+function clearCompleted(){
+    document.querySelectorAll(".todo").forEach((todo) => {
+        if(todo.querySelector("input").checked){
+            todo.remove();
+        }
+     })
+}
