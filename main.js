@@ -4,6 +4,15 @@ const countCompletedDiv = document.querySelector(".completedCount")
 
 var todos = []
 
+document.addEventListener("DOMContentLoaded", function() {
+    var storedTodos = localStorage.getItem('todos');
+    if (storedTodos) {
+      todos = JSON.parse(storedTodos);
+      renderTodos();
+      countCompleted();
+    }
+  });
+
 todoInput.addEventListener("keyup", function (e){
     if(e.key === "Enter" || e.keyCode === 13){
        todos.push({value: e.target.value, checked:false});
@@ -11,6 +20,7 @@ todoInput.addEventListener("keyup", function (e){
         newTodo(e.target.value)
         todoInput.value = "";
         countCompleted();
+        saveTodos();
     }
 });
 
@@ -29,7 +39,7 @@ function newTodo(value){
     todoCheckbox.name = "checkbox";
     todoCheckboxLabel.htmlFor = "checkbox";
 
-    todoCheckboxLabel.addEventListener('click', function(_e){    
+    todoCheckboxLabel.addEventListener('click', function(){    
         if(todoCheckbox.checked){
             todoCheckbox.checked = false;
             todoText.style.textDecoration = 'none';
@@ -37,13 +47,15 @@ function newTodo(value){
             obj.checked = false;
             console.log(todos)
             countCompleted();
+            saveTodos();
         }else {
             obj.checked = true; 
             console.log(todos)
             countCompleted();
             todoCheckbox.checked= true;
             todoText.style.textDecoration = "line-through";
-            todoCheckboxLabel.classList.add('active')
+            todoCheckboxLabel.classList.add('active');
+            saveTodos();
         }
     })
  
@@ -52,7 +64,8 @@ function newTodo(value){
         e.target.parentElement.remove();
         todos = todos.filter((t) => t !== obj);
         countCompleted();
-        console.log(todos)
+        console.log(todos);
+        saveTodos();
     });
 
     todo.classList.add("todo");
@@ -67,7 +80,6 @@ function newTodo(value){
     todosContainer.appendChild(todo);
 
 }
-
 
 function countCompleted(){
     countCompletedDiv.textContent = `${todos.filter((t) => t.checked === false).length} itens left`
@@ -126,3 +138,21 @@ function clearCompleted(){
         }
      })
 }
+
+function saveTodos() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
+
+  function renderTodos() {
+    todos.forEach(function (todo) {
+      newTodo(todo.value);
+      if (todo.checked) {
+        const todoElement = todosContainer.lastChild;
+        const checkbox = todoElement.querySelector("input");
+        const todoText = todoElement.querySelector("p");
+        checkbox.checked = true;
+        todoText.style.textDecoration = "line-through";
+        todoElement.querySelector("label").classList.add('active');
+      }
+    });
+  }
