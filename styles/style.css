@@ -1,5 +1,5 @@
 :root{
-    /*Light Theme*/
+/*Light Theme*/
 --very-Light-Gray: hsl(0, 0%, 98%);
 --very-Light-Grayish-Blue: hsl(236, 33%, 92%);
 --light-Grayish-Blue: hsl(233, 11%, 84%);
@@ -32,8 +32,10 @@ body {
 .top-img {
     width:100%;
     height: 225px;
-    background-size: cover;
-    background-image: url(/images/bg-mobile-dark.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(https://images.unsplash.com/photo-1432847712612-926caafaa802?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
 }
 
 main{
@@ -192,5 +194,8 @@ color:var(--dark-Grayish-Blue)
         transform: translateX(-50%);
         width:50%;
         background-color: transparent;
+    }
+    .top-img{
+        width: 100%;
     }
 }
