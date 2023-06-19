@@ -173,12 +173,18 @@ color:var(--dark-Grayish-Blue)
 }
 
 .attribution { 
-    font-size: 11px; 
+    position: absolute;
+    background-color: var(--very-Dark-Gray-Blue);
+    width:100%;
+    font-size: 14px; 
+    padding: 2px;
+    color: white;
     text-align: center; 
+    bottom: 0;
    
 }
 .attribution a {
-     color: hsl(228, 45%, 44%); 
+     color: hsl(228, 73%, 68%); 
     }
 
 @media screen and (min-width: 800px) {
