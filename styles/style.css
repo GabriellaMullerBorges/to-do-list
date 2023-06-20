@@ -15,6 +15,14 @@
 --dark-Grayish-Blue: hsl(234, 11%, 52%);
 --very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
 --very-Dark-Gray-Blue: hsl(237, 14%, 26%);
+
+
+--bg-todo-light: var(--very-Light-Gray);
+
+--bg-todo-dark: var(--very-Dark-Gray-Blue);
+
+--color-letter: var(--light-Grayish-Blue);
+
 }
 
 
@@ -26,8 +34,30 @@
 }
 
 body {
- background-color: var(--very-Dark-Blue);
+ --bg: var(--very-Dark-Blue);
+ --fg: var(--very-Dark-Gray-Blue);
+ --top-img: url(https://images.unsplash.com/photo-1432847712612-926caafaa802?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+ --toggle-btn:  url(/images/icon-sun.svg);
+ 
+
+ background: var(--bg);
+ color: var(--fg);
+ transition:2ms
 }
+
+.toggle-btn{
+    background-size: cover;
+    height: 30px;
+    width:30px;
+}
+
+.light {
+    --top-img: url(https://images.unsplash.com/photo-1607666340313-493c5017a3a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+    --toggle-btn: url(/images/icon-moon.svg);
+    --bg: var(--light-Grayish-Blue);
+    --fg: var(--very-Light-Gray);
+}
+
 
 .top-img {
     width:100%;
@@ -35,7 +65,11 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(https://images.unsplash.com/photo-1432847712612-926caafaa802?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+    background-image: var(--top-img)
+}
+
+.toggle-btn{
+    background: var(--toggle-btn);
 }
 
 main{
@@ -55,17 +89,10 @@ main{
     font-weight: 700;
 }
 
-.toggle-btn{
-    background: url(/images/icon-sun.svg);
-    background-size: cover;
-    height: 30px;
-    width:30px;
-}
-
 .type-todo{
     margin-top: 24px;
     width: 100%;
-    background-color: var(--very-Dark-Gray-Blue);
+    background-color: var(--fg);
     padding: 10px;
     height: 55px;
     display: grid;
@@ -89,7 +116,12 @@ background-color: transparent;
 width:100%;height: 100%;
 font-size: 20px;
 border:none;
-color:var(--dark-Grayish-Blue)
+color: var(--color-letter);
+caret-color: hsl(220, 98%,61%);
+}
+
+.light .todo-input{
+--color-letter: var(--very-Dark-Grayish-Blue);
 }
 
 :is(.todo-input):focus {
@@ -98,12 +130,10 @@ color:var(--dark-Grayish-Blue)
 
 .todos{
     margin-top: 24px; 
-    background-color: var(--very-Dark-Gray-Blue);
-    color: white;
+    color: var(--color-letter);
 }
 
 .todo {
-   
     width:100%;
     height: 55px;
     display: grid;
@@ -111,6 +141,13 @@ color:var(--dark-Grayish-Blue)
     align-items: center;
     padding: 10px;
     font-size: 20px;
+    background: var(--bg-todo-dark);
+    color: var(--color-letter);
+}
+
+.light .todo{
+    --color-letter: var(--very-Dark-Grayish-Blue);
+    background: var(--bg-todo-light);
 }
 
 .todo input[type="checkbox"]{
@@ -142,14 +179,26 @@ color:var(--dark-Grayish-Blue)
     justify-content: space-between;
     align-items: center;
     position:relative;
-    background-color: var(--very-Dark-Gray-Blue);
+    background: var(--bg-todo-dark);
+    color: var(--color-letter);
     height: 55px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
+
+.light .remarks{
+    --color-letter: var(--very-Dark-Grayish-Blue);
+    background: var(--bg-todo-light);
+}
 .remarks div{
     padding: 0 10px;
-    color: white;
+    background: var(--bg-todo-dark);
+    color: var(--color-letter);
+}
+
+.light .remarks div{
+    --color-letter: var(--very-Dark-Grayish-Blue);
+    background: var(--bg-todo-light);
 }
 
 
@@ -169,19 +218,23 @@ color:var(--dark-Grayish-Blue)
 }
 
 .filterActive {
-    color: hsl(220, 98%,61%) !important; /*voltar aqui para alterar a cor da letra corretamente*/
+    color: hsl(220, 98%,61%) !important; 
 }
 
 .attribution { 
     position: absolute;
-    background-color: var(--very-Dark-Gray-Blue);
+    background: var(--bg-todo-dark);
     width:100%;
     font-size: 14px; 
     padding: 2px;
-    color: white;
+    color: var(--color-letter);
     text-align: center; 
-    bottom: 0;
-   
+    bottom: 0; 
+}
+
+.light .attribution{
+    --color-letter: var(--very-Dark-Grayish-Blue);
+    background: var(--bg-todo-light);
 }
 .attribution a {
      color: hsl(228, 73%, 68%); 
