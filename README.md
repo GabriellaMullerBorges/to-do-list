@@ -49,3 +49,5 @@ Frontend Mentor - Forneceu o desafio e a inspiração de design.
 
 ## ➡ Agradecimentos
 Gostaria de expressar minha gratidão à Frontend Mentor por criar este projeto desafiador e fornecer uma plataforma para aprendizado e melhoria contínuos.
+
+🚀 Gabriella Borges
