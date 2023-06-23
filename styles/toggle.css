@@ -4,3 +4,10 @@
     width:30px;
 }
 
+.light {
+    --top-img: url(https://images.unsplash.com/photo-1607666340313-493c5017a3a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+    --toggle-btn: url(https://cdn-icons-png.flaticon.com/512/180/180700.png);
+    --bg: var(--light-Grayish-Blue);
+    --fg: var(--very-Light-Gray);
+}
+
