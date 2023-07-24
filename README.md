@@ -1,6 +1,6 @@
 # TO DO LIST
 
-![image](https://github.com/GabriellaMullerBorges/to-do-list/assets/112037356/5db01248-82ad-4d01-a8a9-e1d0900c708c)
+
 
 ![image](https://github.com/GabriellaMullerBorges/to-do-list/assets/112037356/8a0c247f-9ff7-4168-be7c-668ac67237b0)
 
